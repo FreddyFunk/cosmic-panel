@@ -215,6 +215,7 @@ impl SpaceContainer {
             });
             if found_window || len != s.popups.len() {
                 s.is_dirty = true;
+                s.needs_layout = true;
                 break;
             }
         }
@@ -575,6 +576,7 @@ impl SpaceContainer {
         for space in &mut self.space_list {
             if space.space.id() == panel_id {
                 space.is_dirty = true;
+                space.needs_layout = true;
                 break;
             }
         }
